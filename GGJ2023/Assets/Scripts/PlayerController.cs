@@ -4,17 +4,36 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb;
     public float speed;
-    public Sprite[] directionalSprite;
-    public Camera cam;
-    public SpriteRenderer rend;
+    public float bulletSpeed;
+    public float bulletCooldown;
 
+    private bool canShoot = true;
+
+    private Rigidbody2D rb;
+    private Camera cam;
+    private SpriteRenderer rend;
+    private Transform trans;
+
+    public Sprite[] directionalSprite;
+    
+    public GameObject bullet;
+
+    void ShootBullet(Vector2 angle)
+    {
+        GameObject newBullet = Instantiate(bullet, trans.position, Quaternion.identity);
+        Transform newBulletTransform = newBullet.GetComponent<Transform>();
+        newBulletTransform.right = angle;
+        Rigidbody2D newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
+        newBulletRigidbody.velocity = newBulletTransform.right * bulletSpeed;
+    }
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         cam = GetComponentInChildren<Camera>();
         rend = GetComponentInChildren<SpriteRenderer>();
+        trans = GetComponent<Transform>();
     }
 
     void Update()
@@ -33,6 +52,8 @@ public class PlayerController : MonoBehaviour
         Vector2 dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (angle < 0) angle += 360;
+
+        // Calculate Directional Sprite
         float angleIncrement = 360 / (directionalSprite.Length * 2);
         int counter = 0;
         while (angle - angleIncrement * counter > 0)
@@ -42,5 +63,11 @@ public class PlayerController : MonoBehaviour
         int directionalSpriteIndex = counter / 2;
         if (directionalSpriteIndex >= directionalSprite.Length) directionalSpriteIndex = 0;
         rend.sprite = directionalSprite[directionalSpriteIndex];
+
+        // Shoot Bullets
+        if (Input.GetKey(KeyCode.Space) && canShoot)
+        {
+            ShootBullet(dir);
+        }
     }
 }
