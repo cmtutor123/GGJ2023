@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6466378258311287568, guid: f0e81f269ceef3942a8dfa22c64f7bb0, type: 3}
+      propertyPath: bulletSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466378258311287568, guid: f0e81f269ceef3942a8dfa22c64f7bb0, type: 3}
+      propertyPath: bulletCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466378258311287568, guid: f0e81f269ceef3942a8dfa22c64f7bb0, type: 3}
+      propertyPath: bulletDestroyDelay
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6760859505840219765, guid: f0e81f269ceef3942a8dfa22c64f7bb0, type: 3}
       propertyPath: m_Name
       value: Player

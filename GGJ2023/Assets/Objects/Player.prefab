@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 6965583178175379053}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,8 +218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  bulletSpeed: 5
-  bulletCooldown: 2
+  bulletSpeed: 20
+  bulletCooldown: 0.5
+  bulletDestroyDelay: 5
   directionalSprite:
   - {fileID: 1080412603, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
   - {fileID: -671612353, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}

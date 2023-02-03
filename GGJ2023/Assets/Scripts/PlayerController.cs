@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float bulletSpeed;
     public float bulletCooldown;
+    private float bulletCooldownCounter;
+    public float bulletDestroyDelay;
 
     private bool canShoot = true;
 
@@ -21,11 +23,14 @@ public class PlayerController : MonoBehaviour
 
     void ShootBullet(Vector2 angle)
     {
+        canShoot = false;
+        bulletCooldownCounter = bulletCooldown;
         GameObject newBullet = Instantiate(bullet, trans.position, Quaternion.identity);
         Transform newBulletTransform = newBullet.GetComponent<Transform>();
         newBulletTransform.right = angle;
         Rigidbody2D newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
         newBulletRigidbody.velocity = newBulletTransform.right * bulletSpeed;
+        Destroy(newBullet, 5);
     }
     
     void Start()
@@ -64,8 +69,12 @@ public class PlayerController : MonoBehaviour
         if (directionalSpriteIndex >= directionalSprite.Length) directionalSpriteIndex = 0;
         rend.sprite = directionalSprite[directionalSpriteIndex];
 
+        // Reduce Bullet Cooldown
+        bulletCooldownCounter -= Time.deltaTime;
+        if (bulletCooldownCounter < 0) canShoot = true;
+
         // Shoot Bullets
-        if (Input.GetKey(KeyCode.Space) && canShoot)
+        if (Input.GetMouseButtonDown(0) && canShoot)
         {
             ShootBullet(dir);
         }
