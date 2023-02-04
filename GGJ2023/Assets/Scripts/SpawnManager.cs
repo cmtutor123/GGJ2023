@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     public List<float> waveCooldowns;
     private float waveCooldownCounter;
 
-    private List<int> spawnQueue;
+    private List<int> spawnQueue = new List<int>();
 
     public GameObject enemyMelee;
     public GameObject enemyRanged;
@@ -117,10 +117,10 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         waveCooldownCounter -= Time.deltaTime;
-        if (waveCooldownCounter <= 0)
+        if (waveCooldownCounter <= 0 && wave < totalWaves)
         {
             waveCooldownCounter = waveCooldowns[wave];
-            if (wave < totalWaves) SpawnWave();
+            SpawnWave();
         }
         if (spawnQueue.Count > 0)
         {

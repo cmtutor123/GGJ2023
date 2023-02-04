@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4812bffc7fae7a4dacf4a0a7448bc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPickup: 0
+  canEnemy: 0
+  canBoss: 0
+  spawnCooldown: 5

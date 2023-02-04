@@ -8,6 +8,9 @@ public class SpawnLocation : MonoBehaviour
     public bool canEnemy = false;
     public bool canBoss = false;
 
+    public float spawnCooldown;
+    private float spawnCooldownCounter = 0;
+
     private bool registered = false;
 
     private bool currentSpawn = false;
@@ -46,11 +49,16 @@ public class SpawnLocation : MonoBehaviour
 
     private void Update()
     {
+        spawnCooldownCounter -= Time.deltaTime;
         if (!registered)
         {
             registered = Register();
         }
-        if (spawned == null)
+        if (currentSpawn && spawned != null)
+        {
+            spawnCooldownCounter = spawnCooldown;
+        }
+        if (spawned == null && spawnCooldownCounter <= 0)
         {
             currentSpawn = false;
         }
