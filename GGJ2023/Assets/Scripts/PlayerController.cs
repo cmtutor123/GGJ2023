@@ -9,17 +9,71 @@ public class PlayerController : MonoBehaviour
     public float bulletCooldown;
     private float bulletCooldownCounter;
     public float bulletDestroyDelay;
+    public float reloadInitialTime;
+    public float reloadCooldown;
+    public float reloadCooldownCounter = 0;
+
+    public int startingBullets;
+    public int maxLoaded;
+    private int currentBullets;
+    private int currentLoaded;
 
     private bool canShoot = true;
+    private bool isReloading = false;
 
     private Rigidbody2D rb;
     private Camera cam;
     private SpriteRenderer rend;
     private Transform trans;
+    private PlayerHealth healthManager;
 
     public Sprite[] directionalSprite;
-    
+
     public GameObject bullet;
+
+    public void InstantLoad(int amount)
+    {
+        if (currentBullets >= amount)
+        {
+            currentBullets -= amount;
+            currentLoaded += amount;
+        }
+        else
+        {
+            currentLoaded = currentBullets;
+            currentBullets = 0;
+        }
+        if (currentLoaded > maxLoaded)
+        {
+            currentBullets += currentLoaded - maxLoaded;
+            currentLoaded = maxLoaded;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "PickupHealth")
+        {
+            if (!healthManager.FullHealth())
+            {
+                healthManager.Heal(1);
+                Destroy(collider.gameObject);
+            }
+        }
+    }
+
+    void Reload()
+    {
+        if (currentBullets >= 1 && currentLoaded < maxLoaded)
+        {
+            currentBullets--;
+            currentLoaded++;
+        }
+        if (currentBullets == 0 || currentLoaded == maxLoaded)
+        {
+            isReloading = false;
+        }
+    }
 
     void ShootBullet(Vector2 angle)
     {
@@ -35,10 +89,13 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
+        currentBullets = startingBullets;
+        InstantLoad(maxLoaded);
         rb = GetComponent<Rigidbody2D>();
         cam = GetComponentInChildren<Camera>();
         rend = GetComponentInChildren<SpriteRenderer>();
         trans = GetComponent<Transform>();
+        healthManager = GetComponent<PlayerHealth>();
     }
 
     void Update()
@@ -72,11 +129,28 @@ public class PlayerController : MonoBehaviour
         // Reduce Bullet Cooldown
         bulletCooldownCounter -= Time.deltaTime;
         if (bulletCooldownCounter < 0) canShoot = true;
+        if (isReloading) reloadCooldownCounter -= Time.deltaTime;
 
         // Shoot Bullets
-        if (Input.GetMouseButtonDown(0) && canShoot)
+        if (Input.GetMouseButtonDown(0) && canShoot && currentLoaded >= 1)
         {
             ShootBullet(dir);
+            isReloading = false;
         }
+
+        // Reloading
+        if (Input.GetKey(KeyCode.R) && currentLoaded < maxLoaded)
+        {
+            isReloading = true;
+        }
+        if (isReloading)
+        {
+            if (reloadCooldownCounter <= 0)
+            {
+                reloadCooldownCounter = reloadCooldown;
+                Reload();
+            }
+        }
+        else reloadCooldownCounter = reloadInitialTime;
     }
 }

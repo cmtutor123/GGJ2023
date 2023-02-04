@@ -9,6 +9,23 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     public int maxHealth;
 
+    public bool FullHealth()
+    {
+        return currentHealth == maxHealth;
+    }
+
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        if (currentHealth < 0) currentHealth = 0;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        GameObject.Find("HealthBar").GetComponent<HealthBarManager>().SetHealthPercentage((float)currentHealth / maxHealth);
+        if (currentHealth <= 0)
+        {
+            PlayerDeath();
+        }
+    }
+
     void PlayerDeath()
     {
         Debug.Log("Player Died");
@@ -26,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
             invincibilityCooldown = invincibilityTime;
             currentHealth -= damage;
             if (currentHealth < 0) currentHealth = 0;
+            if (currentHealth > maxHealth) currentHealth = maxHealth;
             GameObject.Find("HealthBar").GetComponent<HealthBarManager>().SetHealthPercentage((float)currentHealth / maxHealth);
             if (currentHealth <= 0)
             {

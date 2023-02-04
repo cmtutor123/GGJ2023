@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - PlayerBullet
   - EnemyBullet
+  - PickupHealth
+  - PickupAmmo
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - PlayerBullet
   - EnemyBullet
   - Enemy
-  - 
+  - PlayerPickup
   - 
   - 
   - 
