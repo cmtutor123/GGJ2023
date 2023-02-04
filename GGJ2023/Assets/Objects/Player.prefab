@@ -222,22 +222,14 @@ MonoBehaviour:
   bulletCooldown: 0.5
   bulletDestroyDelay: 5
   directionalSprite:
-  - {fileID: 1080412603, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: -671612353, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: 1847481392, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: -1295082715, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: -1169992512, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: 1789409945, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: 158719352, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: 1908574985, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: 2015184213, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: 1006857105, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: -60616823, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: 2063900907, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: 1394150373, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: -764917964, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: -389342757, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
-  - {fileID: -1987272165, guid: b8c478aa9eded034aaa0b1eb2f990c8f, type: 3}
+  - {fileID: 21300000, guid: ee09c1915a6e5044ea66d8d52e34bfe4, type: 3}
+  - {fileID: 21300000, guid: df5987f77051aad4c80ff9e111a289fe, type: 3}
+  - {fileID: 21300000, guid: f63576541b3ef1b429f68c6e19e79c76, type: 3}
+  - {fileID: 21300000, guid: 699325cb530ea7949888288faaec2ff6, type: 3}
+  - {fileID: 21300000, guid: 5cf1fdebe3287a342bed2f43603e2d0e, type: 3}
+  - {fileID: 21300000, guid: 59ac333666aade445bf18a42d6fd2333, type: 3}
+  - {fileID: 21300000, guid: 93af218d15bd0014d832b6f8dc3e16fa, type: 3}
+  - {fileID: 21300000, guid: 1fe59567dd22c0348922bc9036e47538, type: 3}
   bullet: {fileID: 9076114627932093238, guid: 2195b2c423ee24c439c8093dc2c96d3d, type: 3}
 --- !u!50 &8201619039161431897
 Rigidbody2D:
@@ -296,7 +288,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.5}

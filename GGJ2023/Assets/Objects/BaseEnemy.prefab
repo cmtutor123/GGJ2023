@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3460834969932930454}
   - component: {fileID: 2790756230359535388}
   - component: {fileID: 8549091857641287039}
+  - component: {fileID: 1041267361754536230}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Enemy
@@ -133,7 +134,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &2790756230359535388
 MonoBehaviour:
@@ -177,3 +178,16 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &1041267361754536230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5306939000410585223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623bc4f6ded3b774bb7bcc8604969110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 1

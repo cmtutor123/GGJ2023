@@ -11,7 +11,6 @@ public class BaseEnemyAI : MonoBehaviour
     Rigidbody2D rb;
     Seeker seeker;
 
-    private bool reachedEndOfPath = false;
     public float speed;
     public float nextWaypointDistance;
     private int currentWaypoint;
@@ -40,12 +39,7 @@ public class BaseEnemyAI : MonoBehaviour
     void Update()
     {
         if (path == null) return;
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
-            return;
-        }
-        else reachedEndOfPath = false;
+        if (currentWaypoint >= path.vectorPath.Count) return;
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
         rb.velocity = direction * speed;
