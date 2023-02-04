@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2790756230359535388}
   - component: {fileID: 8549091857641287039}
   m_Layer: 0
-  m_Name: BaseEnemy
+  m_Name: ShootingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: acc9a64223e22c642a7e461e967bd0f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c32eb05117646c445b6634818142bc16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab21cbb29fa08c488fe650910246bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   nextWaypointDistance: 0.5
 --- !u!114 &8549091857641287039
 MonoBehaviour:

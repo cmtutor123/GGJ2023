@@ -27,11 +27,12 @@ public class BaseEnemyAI : MonoBehaviour
 
     void Start()
     {
-        path = GameObject.Find("A* Path").GetComponent<Path>();
         target = GameObject.Find("Player").GetComponent<Transform>();
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+
+        InvokeRepeating("UpdatePath", 0f, .5f);
 
         seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
@@ -52,5 +53,10 @@ public class BaseEnemyAI : MonoBehaviour
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
         if (distance < nextWaypointDistance) currentWaypoint++;
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone()) seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 }
