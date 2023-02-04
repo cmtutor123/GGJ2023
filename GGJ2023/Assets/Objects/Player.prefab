@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1526831506167929004}
   m_Layer: 3
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,8 +59,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 8
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -362,8 +362,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.25, y: 1.35}
+  m_EdgeRadius: 0.5
 --- !u!61 &6965583178175379053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -388,8 +388,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
-  m_EdgeRadius: 0.4
+  m_Size: {x: 0.2, y: 0.3}
+  m_EdgeRadius: 0.5
 --- !u!114 &7329561110301191374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibilityTime: 2
-  startingHealth: 3
+  maxHealth: 3
 --- !u!1 &8052315650649412917
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,3 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33fddeeb779b18f4d91eaf2faba66b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xLoc: 0.3
+  yLoc: 0.05
+  xSize: 0.4
+  ySize: 0.05
