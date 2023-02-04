@@ -544,11 +544,12 @@ MonoBehaviour:
   bulletSpeed: 20
   bulletCooldown: 0.5
   bulletDestroyDelay: 5
-  reloadInitialTime: 0
-  reloadCooldown: 0
-  reloadCooldownCounter: 0
-  startingBullets: 0
-  maxLoaded: 0
+  reloadInitialTime: 1
+  reloadCooldown: 0.5
+  startingBullets: 20
+  maxLoaded: 6
+  pickupHealthAmount: 1
+  pickupAmmoAmount: 6
   directionalSprite:
   - {fileID: 21300000, guid: ee09c1915a6e5044ea66d8d52e34bfe4, type: 3}
   - {fileID: 21300000, guid: df5987f77051aad4c80ff9e111a289fe, type: 3}

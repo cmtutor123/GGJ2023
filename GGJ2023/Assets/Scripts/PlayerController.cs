@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,12 +12,14 @@ public class PlayerController : MonoBehaviour
     public float bulletDestroyDelay;
     public float reloadInitialTime;
     public float reloadCooldown;
-    public float reloadCooldownCounter = 0;
+    private float reloadCooldownCounter = 0;
 
     public int startingBullets;
     public int maxLoaded;
     private int currentBullets;
     private int currentLoaded;
+    public int pickupHealthAmount;
+    public int pickupAmmoAmount;
 
     private bool canShoot = true;
     private bool isReloading = false;
@@ -26,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer rend;
     private Transform trans;
     private PlayerHealth healthManager;
+    private TMP_Text ammoDisplay;
 
     public Sprite[] directionalSprite;
 
@@ -50,15 +54,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "PickupHealth")
         {
             if (!healthManager.FullHealth())
             {
-                healthManager.Heal(1);
+                healthManager.Heal(pickupHealthAmount);
                 Destroy(collider.gameObject);
             }
+        }
+        else if (collider.gameObject.tag == "PickupAmmo")
+        {
+            currentBullets += pickupAmmoAmount;
+            Destroy(collider.gameObject);
         }
     }
 
@@ -78,6 +87,7 @@ public class PlayerController : MonoBehaviour
     void ShootBullet(Vector2 angle)
     {
         canShoot = false;
+        currentLoaded--;
         bulletCooldownCounter = bulletCooldown;
         GameObject newBullet = Instantiate(bullet, trans.position, Quaternion.identity);
         Transform newBulletTransform = newBullet.GetComponent<Transform>();
@@ -96,6 +106,7 @@ public class PlayerController : MonoBehaviour
         rend = GetComponentInChildren<SpriteRenderer>();
         trans = GetComponent<Transform>();
         healthManager = GetComponent<PlayerHealth>();
+        ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TMP_Text>();
     }
 
     void Update()
@@ -152,5 +163,6 @@ public class PlayerController : MonoBehaviour
             }
         }
         else reloadCooldownCounter = reloadInitialTime;
+        ammoDisplay.SetText("Ammo: " + currentLoaded + "/" + currentBullets);
     }
 }
