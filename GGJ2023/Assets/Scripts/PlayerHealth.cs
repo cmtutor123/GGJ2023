@@ -24,7 +24,6 @@ public class PlayerHealth : MonoBehaviour
         if (invincibilityCooldown < 0)
         {
             invincibilityCooldown = invincibilityTime;
-            Debug.Log("Player Damaged");
             currentHealth -= damage;
             if (currentHealth <= 0)
             {

@@ -8,8 +8,14 @@ public class DamagePlayer : MonoBehaviour
 
     public int damage;
 
+    public bool destroyOnDamage = false;
+
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player") other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            if (destroyOnDamage) Destroy(gameObject);
+        }
     }
 }

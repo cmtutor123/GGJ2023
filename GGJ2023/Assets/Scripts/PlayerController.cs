@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         newBulletTransform.right = angle;
         Rigidbody2D newBulletRigidbody = newBullet.GetComponent<Rigidbody2D>();
         newBulletRigidbody.velocity = newBulletTransform.right * bulletSpeed;
-        Destroy(newBullet, 5);
+        Destroy(newBullet, bulletDestroyDelay);
     }
     
     void Start()
