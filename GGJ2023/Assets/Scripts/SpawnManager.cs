@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     public List<float> waveCooldowns;
     private float waveCooldownCounter;
 
-    private List<int> spawnQueue = new List<int>();
+    public List<int> spawnQueue = new List<int>();
 
     public GameObject enemyMelee;
     public GameObject enemyRanged;

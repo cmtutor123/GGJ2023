@@ -548,7 +548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   bulletSpeed: 30
-  bulletCooldown: 0.5
+  bulletCooldown: 0.25
   bulletDestroyDelay: 5
   reloadInitialTime: 1
   reloadCooldown: 0.5

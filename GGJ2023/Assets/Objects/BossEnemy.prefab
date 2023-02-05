@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3197876122854020702}
   - component: {fileID: 4382331831416350170}
   - component: {fileID: 2591896542698936660}
+  - component: {fileID: 5162100353640662120}
+  - component: {fileID: 4690666655798391037}
   m_Layer: 10
   m_Name: BossEnemy
   m_TagString: Enemy
@@ -111,3 +113,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5162100353640662120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291948539689351858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39bfd268808f1cd4682ded97e9c729dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossClosed: {fileID: 21300000, guid: 1405a580ce7cd3245a471110b2d2296a, type: 3}
+  bossOpened: {fileID: 21300000, guid: b00d50aeefad5e642b9f6b64351a3674, type: 3}
+  vineAttack: {fileID: 0}
+  vineWall: {fileID: 2088026152203951621, guid: 61178d22e0c43a1419c3939083e0e42a, type: 3}
+  wallOffset: -16.5
+  stateDurations:
+  - 5
+  - 5
+  - 10
+--- !u!114 &4690666655798391037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291948539689351858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623bc4f6ded3b774bb7bcc8604969110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 20
+  destroy: 0

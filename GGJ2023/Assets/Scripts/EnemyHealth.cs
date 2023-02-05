@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     private int currentHealth;
     public int startingHealth;
+    public bool destroy = true;
 
     public int GetHealth()
     {
@@ -29,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (destroy && currentHealth <= 0)
         {
             Destroy(gameObject);
         }
