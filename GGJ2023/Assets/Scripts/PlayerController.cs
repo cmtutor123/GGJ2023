@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -164,5 +165,11 @@ public class PlayerController : MonoBehaviour
         }
         else reloadCooldownCounter = reloadInitialTime;
         ammoDisplay.SetText("Ammo: " + currentLoaded + "/" + currentBullets);
+
+        // Go to Menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
