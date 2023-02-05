@@ -675,6 +675,7 @@ MonoBehaviour:
   audioSource: {fileID: 1050350480697937205}
   loopSound: 1
   loopDelay: 0.3
+  randomDelay: 0
 --- !u!82 &1050350480697937205
 AudioSource:
   m_ObjectHideFlags: 0
@@ -788,6 +789,7 @@ MonoBehaviour:
   audioSource: {fileID: 155646436917461175}
   loopSound: 0
   loopDelay: 0
+  randomDelay: 0
 --- !u!114 &1559041707534720241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,6 +808,7 @@ MonoBehaviour:
   audioSource: {fileID: 8473108891732649256}
   loopSound: 0
   loopDelay: 0
+  randomDelay: 0
 --- !u!82 &155646436917461175
 AudioSource:
   m_ObjectHideFlags: 0

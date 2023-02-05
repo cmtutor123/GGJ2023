@@ -7,6 +7,11 @@ public class EnemyHealth : MonoBehaviour
     private int currentHealth;
     public int startingHealth;
 
+    public int GetHealth()
+    {
+        return currentHealth;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "PlayerBullet")

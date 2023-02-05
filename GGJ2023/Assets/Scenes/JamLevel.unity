@@ -62515,23 +62515,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7699641400537175390, guid: bfc240bf4e0976a4482fc1eace8e9009, type: 3}
       propertyPath: countPickupHealth.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7699641400537175390, guid: bfc240bf4e0976a4482fc1eace8e9009, type: 3}
-      propertyPath: countPickupHealth.Array.data[1]
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7699641400537175390, guid: bfc240bf4e0976a4482fc1eace8e9009, type: 3}
-      propertyPath: countPickupHealth.Array.data[2]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -7699641400537175390, guid: bfc240bf4e0976a4482fc1eace8e9009, type: 3}
-      propertyPath: countPickupHealth.Array.data[3]
+      propertyPath: countPickupHealth.Array.data[1]
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -7699641400537175390, guid: bfc240bf4e0976a4482fc1eace8e9009, type: 3}
+      propertyPath: countPickupHealth.Array.data[2]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7699641400537175390, guid: bfc240bf4e0976a4482fc1eace8e9009, type: 3}
+      propertyPath: countPickupHealth.Array.data[3]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7699641400537175390, guid: bfc240bf4e0976a4482fc1eace8e9009, type: 3}
       propertyPath: countPickupHealth.Array.data[4]
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 391234702498500709, guid: bfc240bf4e0976a4482fc1eace8e9009, type: 3}
       propertyPath: m_Name

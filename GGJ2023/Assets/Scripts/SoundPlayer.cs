@@ -11,6 +11,7 @@ public class SoundPlayer : MonoBehaviour
     public bool loopSound;
     public float loopDelay;
     private float loopCounter;
+    public bool randomDelay;
 
     private bool canPlay = true;
 
@@ -34,6 +35,7 @@ public class SoundPlayer : MonoBehaviour
         if (loopSound && loopCounter <= 0)
         {
             loopCounter = loopDelay;
+            if (randomDelay) loopCounter += Random.Range(0, 2);
             PlaySound();
         }
     }
