@@ -10,6 +10,11 @@ public class MenuOptions : MonoBehaviour
         Application.Quit();
     }
 
+    public void ButtonMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void ButtonPlay()
     {
         SceneManager.LoadScene("JamLevel");

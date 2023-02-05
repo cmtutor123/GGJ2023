@@ -11,6 +11,9 @@ public class SpawnLocation : MonoBehaviour
     public float spawnCooldown;
     private float spawnCooldownCounter = 0;
 
+    public float spawnDistanceMin;
+    public float spawnDistanceMax;
+
     private bool registered = false;
 
     private bool currentSpawn = false;
@@ -19,10 +22,16 @@ public class SpawnLocation : MonoBehaviour
     private SpawnManager manager;
 
     private Transform trans;
+    private Transform player;
 
     public Vector2 GetPosition()
     {
         return trans.position;
+    }
+
+    bool PlayerClose()
+    {
+        return (trans.position - player.position).magnitude <= spawnDistanceMax && (trans.position - player.position).magnitude >= spawnDistanceMin;
     }
 
     bool Register()
@@ -45,6 +54,7 @@ public class SpawnLocation : MonoBehaviour
     void Start()
     {
         trans = GetComponent<Transform>();
+        player = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     private void Update()
@@ -66,7 +76,7 @@ public class SpawnLocation : MonoBehaviour
 
     public bool ValidBoss(GameObject entity)
     {
-        if (!currentSpawn && canBoss)
+        if (!currentSpawn && canBoss && PlayerClose())
         {
             Spawn(entity);
             return true;
@@ -76,7 +86,7 @@ public class SpawnLocation : MonoBehaviour
 
     public bool ValidEnemy(GameObject entity)
     {
-        if (!currentSpawn && canEnemy)
+        if (!currentSpawn && canEnemy && PlayerClose())
         {
             Spawn(entity);
             return true;
@@ -86,7 +96,7 @@ public class SpawnLocation : MonoBehaviour
 
     public bool ValidPickup(GameObject entity)
     {
-        if (!currentSpawn && canPickup)
+        if (!currentSpawn && canPickup && PlayerClose())
         {
             Spawn(entity);
             return true;

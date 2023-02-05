@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     private Transform trans;
     private PlayerHealth healthManager;
     private TMP_Text ammoDisplay;
+    public SoundPlayer soundFootsteps;
+    public SoundPlayer soundReload;
+    public SoundPlayer soundShoot;
 
     public Sprite[] directionalSprite;
 
@@ -76,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentBullets >= 1 && currentLoaded < maxLoaded)
         {
+            soundReload.PlaySound();
             currentBullets--;
             currentLoaded++;
         }
@@ -87,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
     void ShootBullet(Vector2 angle)
     {
+        soundShoot.PlaySound();
         canShoot = false;
         currentLoaded--;
         bulletCooldownCounter = bulletCooldown;
@@ -121,6 +126,7 @@ public class PlayerController : MonoBehaviour
             tempSpeed = speed / Mathf.Sqrt(2);
         }
         rb.velocity = new Vector2(horizontalInput * tempSpeed, verticalInput * tempSpeed);
+        soundFootsteps.SetPlayable(rb.velocity.magnitude > 0.1);
 
         // Determine Direction
         Vector2 dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);

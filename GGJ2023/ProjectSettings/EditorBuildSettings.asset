@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JamLevel.unity
     guid: 225ef45dc09f91342a0e7b1b589c0552
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: a667d6d052ce9bd499985e2ed07edb2b
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: ec659d6045f4c0c40b4cafea3684cefa
   m_configObjects: {}

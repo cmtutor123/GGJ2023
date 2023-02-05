@@ -48,3 +48,5 @@ MonoBehaviour:
   canEnemy: 0
   canBoss: 1
   spawnCooldown: 60
+  spawnDistanceMin: 0
+  spawnDistanceMax: 10
